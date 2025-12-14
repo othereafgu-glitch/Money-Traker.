@@ -1,0 +1,82 @@
+/* ===== BASE ===== */
+* { box-sizing: border-box; margin:0; padding:0; }
+body { font-family: 'Arial', sans-serif; background:#f0f2f5; color:#222; min-height:100vh; }
+.dark-mode { background:#1a1a1a; color:#f0f0f0; }
+
+/* ===== HEADER ===== */
+header { background:#4a90e2; color:#fff; padding:1rem; text-align:center; position:sticky; top:0; z-index:100; }
+header h1 { font-size:1.8rem; margin-bottom:0.5rem; }
+header button { padding:0.4rem 0.8rem; border:none; border-radius:5px; cursor:pointer; font-weight:bold; margin:0.2rem; transition:0.3s; }
+header button:hover { background:#357ABD; }
+
+/* ===== NAV ===== */
+nav { display:flex; justify-content:space-around; background:#357ABD; color:#fff; position:sticky; top:60px; z-index:90; }
+nav button { flex:1; padding:0.8rem; border:none; background:inherit; color:#fff; cursor:pointer; font-weight:bold; transition:0.3s; }
+nav button:hover { background:#2a5f9e; }
+
+/* ===== PAGES ===== */
+.page { display:none; padding:1rem; max-width:480px; margin:0 auto; }
+.page.active { display:block; }
+
+/* ===== FORM & INPUTS ===== */
+input, select, button { width:100%; padding:0.6rem; margin:0.4rem 0; border-radius:6px; border:1px solid #ccc; font-size:1rem; }
+button { background:#4a90e2; color:#fff; border:none; font-weight:bold; transition:0.3s; }
+button:hover { background:#357ABD; }
+
+/* ===== QUICK ADD BUTTONS ===== */
+.quick-buttons { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem; }
+.quick-buttons button {
+  flex:1;
+  font-size:0.9rem;
+  padding:0.5rem;
+  border-radius:6px;
+  border:none;
+  background:#50c878;
+  color:#fff;
+  font-weight:bold;
+  transition:0.2s;
+}
+.quick-buttons button:hover { background:#3da95d; }
+
+/* ===== TRANSACTION LIST ===== */
+.transaction-list { max-height:220px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; background:#fff; padding:0.5rem; }
+.dark-mode .transaction-list { background:#2a2a2a; border-color:#444; }
+
+.transaction-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0.4rem 0.5rem;
+  border-bottom:1px solid #eee;
+  border-radius:6px;
+  background:#f9f9f9;
+  transition: transform 0.3s ease, background 0.2s ease;
+  position: relative;
+  touch-action: pan-y;
+}
+.dark-mode .transaction-item { border-color:#555; background:#333; }
+.transaction-item:hover { background:#e1f0ff; cursor:pointer; }
+.dark-mode .transaction-item:hover { background:#444; }
+
+/* SWIPE DELETE FEEDBACK */
+.transaction-item.swipe-left { transform: translateX(-80px); }
+.transaction-item.swipe-right { transform: translateX(80px); }
+
+/* ===== CHARTS ===== */
+canvas { margin-top:1rem; border-radius:8px; background:#fff; padding:0.5rem; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+.dark-mode canvas { background:#2a2a2a; }
+
+/* ===== SETTINGS ===== */
+.settings button { width:100%; margin:0.3rem 0; }
+
+/* ===== STREAK ===== */
+#streakDisplay { margin-top:0.5rem; font-weight:bold; font-size:1rem; color:#e67e22; }
+.dark-mode #streakDisplay { color:#f5b041; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:500px){
+  header h1{ font-size:1.5rem; }
+  input, select, button{ font-size:0.95rem; }
+  canvas{ max-width:100%; }
+  .quick-buttons button{ font-size:0.85rem; padding:0.4rem; }
+}
